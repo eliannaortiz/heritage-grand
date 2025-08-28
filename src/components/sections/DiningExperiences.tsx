@@ -122,7 +122,7 @@ const DiningExperiences = () => {
       specialty: 'Royal Rajasthani Cuisine',
       experience: '15+ years',
       description: 'Master of traditional Rajasthani cuisine with modern presentation techniques. Trained under royal chefs and passionate about preserving authentic flavors.',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       achievements: ['Heritage Recipe Preservation Award', 'Best Regional Chef 2023', 'Culinary Excellence Medal']
     },
     {
@@ -131,7 +131,7 @@ const DiningExperiences = () => {
       specialty: 'Traditional Sweets & Desserts',
       experience: '12+ years',
       description: 'Expert in traditional Indian sweets and contemporary desserts. Creates magical endings to every dining experience with her innovative presentations.',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       achievements: ['Best Dessert Innovation', 'Traditional Sweets Master', 'Culinary Arts Excellence']
     },
     {
@@ -140,7 +140,7 @@ const DiningExperiences = () => {
       specialty: 'International & Fusion Cuisine',
       experience: '18+ years',
       description: 'Culinary expert bringing global flavors to Heritage Grand. Specializes in fusion cuisine that respects both Indian and international traditions.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1674752/pexels-photo-1674752.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       achievements: ['International Cuisine Award', 'Fusion Master Chef', 'Global Culinary Recognition']
     }
   ];

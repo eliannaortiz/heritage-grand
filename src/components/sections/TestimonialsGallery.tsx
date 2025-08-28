@@ -19,7 +19,7 @@ const TestimonialsGallery = () => {
       experience: 'Heritage Deluxe Room + Royal Dining',
       review: 'Our stay at Heritage Grand was absolutely magical! The attention to detail in preserving the royal heritage while providing modern comfort is remarkable. The staff treated us like royalty, and the heritage tour was fascinating. We felt transported back in time.',
       highlight: 'The heritage tour and royal dining experience exceeded all expectations.',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
       stayDuration: '3 nights',
       roomType: 'Heritage Deluxe Room'
@@ -33,7 +33,7 @@ const TestimonialsGallery = () => {
       experience: 'Maharaja Suite + Cultural Immersion',
       review: 'An extraordinary experience that beautifully showcases Indian heritage and hospitality. The Maharaja Suite was palatial, and the cultural immersion program gave us authentic insights into Rajasthani traditions. The Mehra family\'s personal touch made it unforgettable.',
       highlight: 'Authentic cultural experience with unparalleled hospitality.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
       stayDuration: '5 nights',
       roomType: 'Maharaja Suite'
@@ -47,7 +47,7 @@ const TestimonialsGallery = () => {
       experience: 'Royal Suite + Wellness Retreat',
       review: 'Perfect blend of heritage charm and modern luxury. The wellness retreat was rejuvenating, and dining at Maharaja\'s Court felt like a royal feast. Every corner of the hotel tells a story, and the staff\'s knowledge of the heritage is impressive.',
       highlight: 'Perfect combination of heritage, luxury, and wellness.',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
       stayDuration: '4 nights',
       roomType: 'Royal Suite'
@@ -61,7 +61,7 @@ const TestimonialsGallery = () => {
       experience: 'Palace Wing Premium + Desert Safari',
       review: 'Heritage Grand exceeded every expectation! The desert safari at sunrise was breathtaking, and returning to the palace felt like coming home to luxury. The cooking masterclass was a highlight - I\'m still making those recipes at home!',
       highlight: 'Desert safari and cooking masterclass were unforgettable.',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
       stayDuration: '6 nights',
       roomType: 'Palace Wing Premium'
@@ -75,7 +75,7 @@ const TestimonialsGallery = () => {
       experience: 'Garden View Classic + Photography Workshop',
       review: 'What a gem! Even the classic room was beautifully appointed with heritage touches. The photography workshop helped us capture the palace\'s beauty perfectly. The staff went above and beyond to make our anniversary special.',
       highlight: 'Staff made our anniversary celebration truly memorable.',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      image: 'https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
       stayDuration: '3 nights',
       roomType: 'Garden View Classic'

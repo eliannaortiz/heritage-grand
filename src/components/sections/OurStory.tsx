@@ -46,19 +46,19 @@ const OurStory = () => {
       name: 'Arjun Mehra',
       role: 'Managing Director',
       description: 'Fourth generation heir, passionate about preserving heritage while embracing innovation.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     },
     {
       name: 'Ananya Kapoor',
       role: 'Guest Relations Director',
       description: 'Ensures every guest experiences the warmth and personal touch of traditional Indian hospitality.',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     },
     {
       name: 'Chef Rohan Malhotra',
       role: 'Executive Chef',
       description: 'Master of royal Rajasthani cuisine, preserving centuries-old recipes with modern presentation.',
-      image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     }
   ];
 
