@@ -12,7 +12,7 @@ const TestimonialsGallery = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Priya & Rajesh Gupta',
+      name: 'Isha Mehta & Aarav Sinha',
       location: 'Mumbai, Maharashtra',
       rating: 5,
       date: 'December 2024',
@@ -26,12 +26,12 @@ const TestimonialsGallery = () => {
     },
     {
       id: 2,
-      name: 'James & Sarah Wilson',
-      location: 'London, UK',
+      name: 'Aanya Nair & Ishaan Verma',
+      location: 'Bangalore, Karnataka',
       rating: 5,
       date: 'November 2024',
       experience: 'Maharaja Suite + Cultural Immersion',
-      review: 'An extraordinary experience that beautifully showcases Indian heritage and hospitality. The Maharaja Suite was palatial, and the cultural immersion program gave us authentic insights into Rajasthani traditions. The Sharma family\'s personal touch made it unforgettable.',
+      review: 'An extraordinary experience that beautifully showcases Indian heritage and hospitality. The Maharaja Suite was palatial, and the cultural immersion program gave us authentic insights into Rajasthani traditions. The Mehra family\'s personal touch made it unforgettable.',
       highlight: 'Authentic cultural experience with unparalleled hospitality.',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
@@ -40,7 +40,7 @@ const TestimonialsGallery = () => {
     },
     {
       id: 3,
-      name: 'Anita & Vikram Sharma',
+      name: 'Tara Sinha & Devansh Khurana',
       location: 'Delhi, India',
       rating: 5,
       date: 'October 2024',
@@ -54,8 +54,8 @@ const TestimonialsGallery = () => {
     },
     {
       id: 4,
-      name: 'Michael Chen',
-      location: 'Singapore',
+      name: 'Ritvik Reddy',
+      location: 'Hyderabad, Telangana',
       rating: 5,
       date: 'September 2024',
       experience: 'Palace Wing Premium + Desert Safari',
@@ -68,8 +68,8 @@ const TestimonialsGallery = () => {
     },
     {
       id: 5,
-      name: 'Lisa & David Thompson',
-      location: 'Sydney, Australia',
+      name: 'Kiara Reddy & Aditya Chauhan',
+      location: 'Chennai, Tamil Nadu',
       rating: 5,
       date: 'August 2024',
       experience: 'Garden View Classic + Photography Workshop',

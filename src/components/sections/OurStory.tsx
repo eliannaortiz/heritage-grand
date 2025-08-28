@@ -43,19 +43,19 @@ const OurStory = () => {
 
   const familyMembers = [
     {
-      name: 'Rajesh Sharma',
+      name: 'Arjun Mehra',
       role: 'Managing Director',
       description: 'Fourth generation heir, passionate about preserving heritage while embracing innovation.',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     },
     {
-      name: 'Priya Sharma',
+      name: 'Ananya Kapoor',
       role: 'Guest Relations Director',
       description: 'Ensures every guest experiences the warmth and personal touch of traditional Indian hospitality.',
       image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     },
     {
-      name: 'Chef Arjun Patel',
+      name: 'Chef Rohan Malhotra',
       role: 'Executive Chef',
       description: 'Master of royal Rajasthani cuisine, preserving centuries-old recipes with modern presentation.',
       image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
@@ -225,7 +225,7 @@ const OurStory = () => {
             becomes part of our continuing story, adding their own chapter to our legacy."
           </blockquote>
           <cite className="font-sans text-lg text-[#D4AF37] font-semibold">
-            — Rajesh Sharma, Managing Director
+            — Arjun Mehra, Managing Director
           </cite>
         </div>
       </div>

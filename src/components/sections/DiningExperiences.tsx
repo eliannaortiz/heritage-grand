@@ -117,7 +117,7 @@ const DiningExperiences = () => {
 
   const chefs = [
     {
-      name: 'Chef Arjun Patel',
+      name: 'Chef Karan Kapoor',
       role: 'Executive Chef',
       specialty: 'Royal Rajasthani Cuisine',
       experience: '15+ years',
@@ -126,7 +126,7 @@ const DiningExperiences = () => {
       achievements: ['Heritage Recipe Preservation Award', 'Best Regional Chef 2023', 'Culinary Excellence Medal']
     },
     {
-      name: 'Chef Priya Sharma',
+      name: 'Chef Rhea Malhotra',
       role: 'Pastry Chef',
       specialty: 'Traditional Sweets & Desserts',
       experience: '12+ years',
@@ -135,11 +135,11 @@ const DiningExperiences = () => {
       achievements: ['Best Dessert Innovation', 'Traditional Sweets Master', 'Culinary Arts Excellence']
     },
     {
-      name: 'Chef Marco Rodriguez',
+      name: 'Chef Nikhil Batra',
       role: 'Continental Chef',
-      specialty: 'International Cuisine',
+      specialty: 'International & Fusion Cuisine',
       experience: '18+ years',
-      description: 'International culinary expert bringing global flavors to Heritage Grand. Specializes in fusion cuisine that respects both traditions.',
+      description: 'Culinary expert bringing global flavors to Heritage Grand. Specializes in fusion cuisine that respects both Indian and international traditions.',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       achievements: ['International Cuisine Award', 'Fusion Master Chef', 'Global Culinary Recognition']
     }

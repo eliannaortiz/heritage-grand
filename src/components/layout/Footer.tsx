@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
             
             <p className="text-white/90 leading-relaxed mb-6">
-              Experience 150 years of royal hospitality in our meticulously restored palace, 
+              Experience 150 years of royal hospitality under the Mehra family legacy in our meticulously restored palace, 
               where heritage meets modern luxury in the heart of Rajasthan.
             </p>
 
