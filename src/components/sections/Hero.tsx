@@ -16,24 +16,6 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         
-        {/* Trust Badges */}
-        <div className="flex justify-center items-center space-x-6 mb-8 opacity-90">
-          <div className="flex items-center space-x-2">
-            <Star className="text-[#D4AF37]" size={20} />
-            <span className="text-sm font-sans">5-Star Heritage</span>
-          </div>
-          <div className="w-px h-4 bg-white/30"></div>
-          <div className="flex items-center space-x-2">
-            <Award className="text-[#D4AF37]" size={20} />
-            <span className="text-sm font-sans">Award Winner</span>
-          </div>
-          <div className="w-px h-4 bg-white/30"></div>
-          <div className="flex items-center space-x-2">
-            <Calendar className="text-[#D4AF37]" size={20} />
-            <span className="text-sm font-sans">Est. 1875</span>
-          </div>
-        </div>
-
         {/* Main Headline */}
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
           Where <span className="text-[#D4AF37]">Heritage</span> Meets
@@ -51,6 +33,24 @@ const Hero = () => {
         <p className="font-serif text-base md:text-lg text-[#D4AF37] mb-12 italic">
           "Four generations of the Sharma family welcome you to our ancestral home"
         </p>
+
+        {/* Trust Badges - Moved below heritage note */}
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-8 opacity-90">
+          <div className="flex items-center space-x-2">
+            <Star className="text-[#D4AF37]" size={18} />
+            <span className="text-sm font-sans">5-Star Heritage</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-white/30"></div>
+          <div className="flex items-center space-x-2">
+            <Award className="text-[#D4AF37]" size={18} />
+            <span className="text-sm font-sans">Award Winner</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-white/30"></div>
+          <div className="flex items-center space-x-2">
+            <Calendar className="text-[#D4AF37]" size={18} />
+            <span className="text-sm font-sans">Est. 1875</span>
+          </div>
+        </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
