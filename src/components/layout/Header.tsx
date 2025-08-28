@@ -51,25 +51,25 @@ const Header = () => {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-lg shadow-xl md:top-0' 
-            : 'bg-transparent md:top-[40px]'
+            ? 'bg-white/95 backdrop-blur-lg shadow-xl' 
+            : 'bg-transparent md:top-[40px] top-0'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-20 md:h-20">
             
             {/* Logo */}
             <div className="flex items-center">
               <div className="text-center">
                 <h1 className={cn(
-                  'font-serif text-2xl md:text-3xl font-bold transition-colors duration-300',
-                  isScrolled ? 'text-[#8B1538]' : 'text-white md:text-[#8B1538]'
+                  'font-serif text-xl md:text-3xl font-bold transition-colors duration-300',
+                  isScrolled ? 'text-[#8B1538]' : 'text-[#8B1538]'
                 )}>
                   Heritage Grand
                 </h1>
                 <p className={cn(
                   'text-xs md:text-sm font-sans tracking-widest uppercase transition-colors duration-300',
-                  isScrolled ? 'text-[#D4AF37]' : 'text-white/90 md:text-[#D4AF37]'
+                  isScrolled ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
                 )}>
                   Est. 1875
                 </p>
