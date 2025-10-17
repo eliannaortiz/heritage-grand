@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,7 +97,11 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="primary" size="sm">
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={() => setShowBookingForm(true)}
+              >
                 Book Now
               </Button>
             </div>
@@ -131,7 +137,14 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 border-t border-gray-200">
-                <Button variant="primary" className="w-full">
+                <Button
+                  variant="primary"
+                  className="w-full"
+                  onClick={() => {
+                    setShowBookingForm(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Book Your Stay
                 </Button>
               </div>
@@ -145,6 +158,35 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {/* Booking Form Modal */}
+      {showBookingForm && (
+        <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">Book Your Stay</h3>
+                  <p className="opacity-90">Experience Heritage Grand Hotel</p>
+                </div>
+                <button
+                  onClick={() => setShowBookingForm(false)}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType="Room"
+                itemName="Heritage Grand Hotel"
+                onClose={() => setShowBookingForm(false)}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
