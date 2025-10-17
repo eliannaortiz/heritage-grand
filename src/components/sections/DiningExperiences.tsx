@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { ChefHat, Utensils, Wine, Clock, Users, Star, Award, MapPin, Calendar, Crown, Sparkles, Camera } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const DiningExperiences = () => {
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [bookingItem, setBookingItem] = useState(null);
 
   const restaurants = [
     {
@@ -329,7 +332,14 @@ const DiningExperiences = () => {
                   >
                     View Menu
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingItem({ type: 'Table', name: restaurant.name });
+                      setShowBookingForm(true);
+                    }}
+                  >
                     Reserve Table
                   </Button>
                 </div>
@@ -438,7 +448,14 @@ const DiningExperiences = () => {
                     ))}
                   </div>
 
-                  <Button variant="primary" className="w-full">
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    onClick={() => {
+                      setBookingItem({ type: 'Dining Package', name: pkg.name, price: pkg.price });
+                      setShowBookingForm(true);
+                    }}
+                  >
                     Book Experience
                   </Button>
                 </CardContent>
@@ -471,7 +488,14 @@ const DiningExperiences = () => {
               <div className="text-sm opacity-80">40 guests only</div>
             </div>
           </div>
-          <Button variant="secondary" size="lg">
+          <Button
+            variant="secondary"
+            size="lg"
+            onClick={() => {
+              setBookingItem({ type: 'Event', name: 'Royal Feast Festival', price: 3500 });
+              setShowBookingForm(true);
+            }}
+          >
             Reserve Your Seat
           </Button>
         </div>
@@ -601,7 +625,16 @@ const DiningExperiences = () => {
 
                 {/* Booking Actions */}
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                  <Button variant="primary" size="lg" className="flex-1">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingItem({ type: 'Table', name: selectedRestaurant.name });
+                      setShowBookingForm(true);
+                      closeRestaurantModal();
+                    }}
+                  >
                     Reserve Table
                   </Button>
                   <Button variant="outline" size="lg" className="flex-1">
@@ -609,6 +642,45 @@ const DiningExperiences = () => {
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Booking Form Modal */}
+      {showBookingForm && bookingItem && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">{bookingItem.type} Reservation</h3>
+                  <p className="opacity-90">{bookingItem.name}</p>
+                  {bookingItem.price && (
+                    <p className="opacity-90">₹{bookingItem.price.toLocaleString()} per person</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => {
+                    setShowBookingForm(false);
+                    setBookingItem(null);
+                  }}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType={bookingItem.type}
+                itemName={bookingItem.name}
+                price={bookingItem.price}
+                onClose={() => {
+                  setShowBookingForm(false);
+                  setBookingItem(null);
+                }}
+              />
             </div>
           </div>
         </div>
