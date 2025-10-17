@@ -120,7 +120,7 @@ const DiningExperiences = () => {
 
   const chefs = [
     {
-      name: 'Chef Karan Kapoor',
+      name: 'Chef Kairav Reddy',
       role: 'Executive Chef',
       specialty: 'Royal Rajasthani Cuisine',
       experience: '15+ years',
@@ -129,7 +129,7 @@ const DiningExperiences = () => {
       achievements: ['Heritage Recipe Preservation Award', 'Best Regional Chef 2023', 'Culinary Excellence Medal']
     },
     {
-      name: 'Chef Rhea Malhotra',
+      name: 'Chef Saanvi Verma',
       role: 'Pastry Chef',
       specialty: 'Traditional Sweets & Desserts',
       experience: '12+ years',
@@ -138,7 +138,7 @@ const DiningExperiences = () => {
       achievements: ['Best Dessert Innovation', 'Traditional Sweets Master', 'Culinary Arts Excellence']
     },
     {
-      name: 'Chef Nikhil Batra',
+      name: 'Chef Rajan Bhasin',
       role: 'Continental Chef',
       specialty: 'International & Fusion Cuisine',
       experience: '18+ years',

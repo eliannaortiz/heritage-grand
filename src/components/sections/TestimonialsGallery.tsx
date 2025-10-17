@@ -12,7 +12,7 @@ const TestimonialsGallery = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Isha Mehta & Aarav Sinha',
+      name: 'Aarohi Deshmukh & Ishan Joshi',
       location: 'Mumbai, Maharashtra',
       rating: 5,
       date: 'December 2024',
@@ -26,12 +26,12 @@ const TestimonialsGallery = () => {
     },
     {
       id: 2,
-      name: 'Aanya Nair & Ishaan Verma',
+      name: 'Mishka Nair & Avik Malhotra',
       location: 'Bangalore, Karnataka',
       rating: 5,
       date: 'November 2024',
       experience: 'Maharaja Suite + Cultural Immersion',
-      review: 'An extraordinary experience that beautifully showcases Indian heritage and hospitality. The Maharaja Suite was palatial, and the cultural immersion program gave us authentic insights into Rajasthani traditions. The Mehra family\'s personal touch made it unforgettable.',
+      review: 'An extraordinary experience that beautifully showcases Indian heritage and hospitality. The Maharaja Suite was palatial, and the cultural immersion program gave us authentic insights into Rajasthani traditions. The Sharma family\'s personal touch made it unforgettable.',
       highlight: 'Authentic cultural experience with unparalleled hospitality.',
       image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       verified: true,
@@ -40,7 +40,7 @@ const TestimonialsGallery = () => {
     },
     {
       id: 3,
-      name: 'Tara Sinha & Devansh Khurana',
+      name: 'Ira Sathyan & Atharv Saini',
       location: 'Delhi, India',
       rating: 5,
       date: 'October 2024',
@@ -54,7 +54,7 @@ const TestimonialsGallery = () => {
     },
     {
       id: 4,
-      name: 'Ritvik Reddy',
+      name: 'Jaiveer Mehra',
       location: 'Hyderabad, Telangana',
       rating: 5,
       date: 'September 2024',
@@ -68,7 +68,7 @@ const TestimonialsGallery = () => {
     },
     {
       id: 5,
-      name: 'Kiara Reddy & Aditya Chauhan',
+      name: 'Riya Jindal & Ayaan Pillai',
       location: 'Chennai, Tamil Nadu',
       rating: 5,
       date: 'August 2024',
