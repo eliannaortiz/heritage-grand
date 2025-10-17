@@ -65,13 +65,13 @@ const Header = () => {
               <div className="text-center">
                 <h1 className={cn(
                   'font-serif text-xl md:text-3xl font-bold transition-colors duration-300',
-                  isScrolled ? 'text-[#8B1538]' : 'text-[#8B1538]'
+                  isScrolled ? 'text-[#8B1538]' : 'text-white md:text-[#8B1538]'
                 )}>
                   Heritage Grand
                 </h1>
                 <p className={cn(
                   'text-xs md:text-sm font-sans tracking-widest uppercase transition-colors duration-300',
-                  isScrolled ? 'text-[#D4AF37]' : 'text-[#D4AF37]'
+                  isScrolled ? 'text-[#D4AF37]' : 'text-white/90 md:text-[#D4AF37]'
                 )}>
                   Est. 1875
                 </p>
