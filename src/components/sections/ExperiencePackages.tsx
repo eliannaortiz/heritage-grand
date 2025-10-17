@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { MapPin, Clock, Users, Star, Calendar, Camera, Crown, Sparkles, Heart, Award, Compass, Sunrise, Music, Palette, Leaf, Mountain } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const ExperiencePackages = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [bookingPackage, setBookingPackage] = useState(null);
 
   const packages = [
     {
@@ -364,14 +367,21 @@ const ExperiencePackages = () => {
                 </div>
 
                 <div className="flex space-x-3">
-                  <Button 
-                    variant="primary" 
+                  <Button
+                    variant="primary"
                     className="flex-1"
                     onClick={() => openPackageModal(pkg)}
                   >
                     View Details
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingPackage(pkg);
+                      setShowBookingForm(true);
+                    }}
+                  >
                     Book Now
                   </Button>
                 </div>
@@ -589,14 +599,68 @@ const ExperiencePackages = () => {
 
                 {/* Booking Actions */}
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                  <Button variant="primary" size="lg" className="flex-1">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingPackage(selectedPackage);
+                      setShowBookingForm(true);
+                      closePackageModal();
+                    }}
+                  >
                     Book This Experience
                   </Button>
-                  <Button variant="outline" size="lg" className="flex-1">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingPackage(selectedPackage);
+                      setShowBookingForm(true);
+                      closePackageModal();
+                    }}
+                  >
                     Check Availability
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Booking Form Modal */}
+      {showBookingForm && bookingPackage && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">Book {bookingPackage.name}</h3>
+                  <p className="opacity-90">₹{bookingPackage.price.toLocaleString()} per person</p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowBookingForm(false);
+                    setBookingPackage(null);
+                  }}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType="Experience"
+                itemName={bookingPackage.name}
+                price={bookingPackage.price}
+                onClose={() => {
+                  setShowBookingForm(false);
+                  setBookingPackage(null);
+                }}
+              />
             </div>
           </div>
         </div>

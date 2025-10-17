@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Bed, Users, Wifi, Car, Coffee, Bath, Star, Calendar, MapPin, Crown, Sparkles, Camera } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const RoomsSuites = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [bookingRoom, setBookingRoom] = useState(null);
 
   const rooms = [
     {
@@ -279,14 +282,21 @@ const RoomsSuites = () => {
                 </div>
 
                 <div className="flex space-x-3">
-                  <Button 
-                    variant="primary" 
+                  <Button
+                    variant="primary"
                     className="flex-1"
                     onClick={() => openRoomModal(room)}
                   >
                     View Details
                   </Button>
-                  <Button variant="outline" className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingRoom(room);
+                      setShowBookingForm(true);
+                    }}
+                  >
                     Book Now
                   </Button>
                 </div>
@@ -417,14 +427,68 @@ const RoomsSuites = () => {
 
                 {/* Booking Actions */}
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                  <Button variant="primary" size="lg" className="flex-1">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingRoom(selectedRoom);
+                      setShowBookingForm(true);
+                      closeRoomModal();
+                    }}
+                  >
                     Book This Room
                   </Button>
-                  <Button variant="outline" size="lg" className="flex-1">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="flex-1"
+                    onClick={() => {
+                      setBookingRoom(selectedRoom);
+                      setShowBookingForm(true);
+                      closeRoomModal();
+                    }}
+                  >
                     Check Availability
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Booking Form Modal */}
+      {showBookingForm && bookingRoom && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">Book {bookingRoom.name}</h3>
+                  <p className="opacity-90">₹{bookingRoom.price.toLocaleString()} per night</p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowBookingForm(false);
+                    setBookingRoom(null);
+                  }}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType="Room"
+                itemName={bookingRoom.name}
+                price={bookingRoom.price}
+                onClose={() => {
+                  setShowBookingForm(false);
+                  setBookingRoom(null);
+                }}
+              />
             </div>
           </div>
         </div>

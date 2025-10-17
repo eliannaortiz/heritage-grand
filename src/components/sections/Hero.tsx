@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, Star, Award, Calendar } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const Hero = () => {
+  const [showBookingModal, setShowBookingModal] = useState(false);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -54,10 +57,11 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             size="lg"
             className="w-full sm:w-auto min-w-48 text-lg py-4"
+            onClick={() => setShowBookingModal(true)}
           >
             Book Your Royal Stay
           </Button>
@@ -102,6 +106,34 @@ const Hero = () => {
       {/* Decorative Elements */}
       <div className="absolute top-1/4 left-10 w-2 h-32 bg-gradient-to-b from-[#D4AF37] to-transparent opacity-30 hidden lg:block"></div>
       <div className="absolute bottom-1/4 right-10 w-2 h-32 bg-gradient-to-t from-[#D4AF37] to-transparent opacity-30 hidden lg:block"></div>
+
+      {/* Booking Modal */}
+      {showBookingModal && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">Book Your Royal Stay</h3>
+                  <p className="opacity-90">Fill in your details to continue</p>
+                </div>
+                <button
+                  onClick={() => setShowBookingModal(false)}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType="Room"
+                onClose={() => setShowBookingModal(false)}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

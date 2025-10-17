@@ -2,24 +2,9 @@ import React, { useState } from 'react';
 import { Calendar, Users, Phone, Mail, MapPin, Clock, Send, CheckCircle, Star, Crown, Wifi, Car, Coffee, Bath, Award, Globe, MessageCircle, Heart } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { BookingForm } from '../ui/BookingForm';
 
 const BookingContact = () => {
-  const [bookingStep, setBookingStep] = useState(1);
-  const [bookingData, setBookingData] = useState({
-    checkIn: '',
-    checkOut: '',
-    guests: 2,
-    rooms: 1,
-    roomType: '',
-    specialRequests: '',
-    guestInfo: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      country: 'India'
-    }
-  });
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -28,15 +13,7 @@ const BookingContact = () => {
     message: ''
   });
   const [showBookingModal, setShowBookingModal] = useState(false);
-  const [bookingComplete, setBookingComplete] = useState(false);
 
-  const roomTypes = [
-    { id: 'garden-classic', name: 'Garden View Classic', price: 3000, originalPrice: 3600 },
-    { id: 'heritage-deluxe', name: 'Heritage Deluxe Room', price: 3500, originalPrice: 4200 },
-    { id: 'palace-premium', name: 'Palace Wing Premium', price: 4200, originalPrice: 5000 },
-    { id: 'royal-suite', name: 'Royal Suite', price: 5500, originalPrice: 6800 },
-    { id: 'maharaja-suite', name: 'Maharaja Suite', price: 8000, originalPrice: 10000 }
-  ];
 
   const inquiryTypes = [
     'General Inquiry',
@@ -91,39 +68,21 @@ const BookingContact = () => {
     { icon: Coffee, title: 'Shopping', description: '10 minutes to local markets' }
   ];
 
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-    if (bookingStep < 3) {
-      setBookingStep(bookingStep + 1);
-    } else {
-      setBookingComplete(true);
-      setTimeout(() => {
-        setShowBookingModal(false);
-        setBookingComplete(false);
-        setBookingStep(1);
-        setBookingData({
-          checkIn: '',
-          checkOut: '',
-          guests: 2,
-          rooms: 1,
-          roomType: '',
-          specialRequests: '',
-          guestInfo: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            country: 'India'
-          }
-        });
-      }, 3000);
-    }
-  };
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    // Handle contact form submission
-    alert('Thank you for your inquiry! We will respond within 2 hours.');
+
+    const whatsappNumber = '919205402295';
+    let message = `*Contact Form Inquiry*%0A%0A`;
+    message += `*Name:* ${contactForm.name}%0A`;
+    message += `*Email:* ${contactForm.email}%0A`;
+    message += `*Phone:* ${contactForm.phone}%0A`;
+    message += `*Inquiry Type:* ${contactForm.subject}%0A`;
+    message += `*Message:* ${contactForm.message}%0A`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+
     setContactForm({
       name: '',
       email: '',
@@ -133,25 +92,6 @@ const BookingContact = () => {
     });
   };
 
-  const calculateNights = () => {
-    if (bookingData.checkIn && bookingData.checkOut) {
-      const checkIn = new Date(bookingData.checkIn);
-      const checkOut = new Date(bookingData.checkOut);
-      const diffTime = Math.abs(checkOut - checkIn);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return diffDays;
-    }
-    return 0;
-  };
-
-  const calculateTotal = () => {
-    const selectedRoom = roomTypes.find(room => room.id === bookingData.roomType);
-    if (selectedRoom) {
-      const nights = calculateNights();
-      return selectedRoom.price * nights * bookingData.rooms;
-    }
-    return 0;
-  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-[#F5F5DC] to-[#FAF9F6] heritage-paper-texture">
@@ -467,300 +407,26 @@ const BookingContact = () => {
       {showBookingModal && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {!bookingComplete ? (
-              <div>
-                {/* Modal Header */}
-                <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-serif text-2xl font-bold">Book Your Stay</h3>
-                      <p className="opacity-90">Step {bookingStep} of 3</p>
-                    </div>
-                    <button 
-                      onClick={() => setShowBookingModal(false)}
-                      className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div className="mt-4 bg-white/20 rounded-full h-2">
-                    <div 
-                      className="bg-[#D4AF37] h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${(bookingStep / 3) * 100}%` }}
-                    />
-                  </div>
+            <div className="bg-gradient-to-r from-[#8B1538] to-[#A61E4D] p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-2xl font-bold">Book Your Stay</h3>
+                  <p className="opacity-90">Fill in your details to continue</p>
                 </div>
-
-                {/* Modal Content */}
-                <form onSubmit={handleBookingSubmit} className="p-6">
-                  {bookingStep === 1 && (
-                    <div className="space-y-6">
-                      <h4 className="font-serif text-xl font-bold text-[#8B1538] mb-4">Select Dates & Room</h4>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Check-in Date</label>
-                          <input
-                            type="date"
-                            required
-                            value={bookingData.checkIn}
-                            onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                            min={new Date().toISOString().split('T')[0]}
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Check-out Date</label>
-                          <input
-                            type="date"
-                            required
-                            value={bookingData.checkOut}
-                            onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                            min={bookingData.checkIn || new Date().toISOString().split('T')[0]}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Guests</label>
-                          <select
-                            value={bookingData.guests}
-                            onChange={(e) => setBookingData({...bookingData, guests: parseInt(e.target.value)})}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          >
-                            {[1,2,3,4,5,6].map(num => (
-                              <option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</option>
-                            ))}
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Rooms</label>
-                          <select
-                            value={bookingData.rooms}
-                            onChange={(e) => setBookingData({...bookingData, rooms: parseInt(e.target.value)})}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          >
-                            {[1,2,3,4].map(num => (
-                              <option key={num} value={num}>{num} Room{num > 1 ? 's' : ''}</option>
-                            ))}
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold text-[#8B1538] mb-2">Room Type</label>
-                        <div className="space-y-3">
-                          {roomTypes.map((room) => (
-                            <label key={room.id} className="flex items-center p-4 border border-gray-300 rounded-lg hover:border-[#8B1538] cursor-pointer">
-                              <input
-                                type="radio"
-                                name="roomType"
-                                value={room.id}
-                                checked={bookingData.roomType === room.id}
-                                onChange={(e) => setBookingData({...bookingData, roomType: e.target.value})}
-                                className="mr-4 text-[#8B1538]"
-                              />
-                              <div className="flex-1">
-                                <div className="flex items-center justify-between">
-                                  <h5 className="font-semibold text-[#8B1538]">{room.name}</h5>
-                                  <div className="text-right">
-                                    <div className="text-sm text-gray-500 line-through">₹{room.originalPrice.toLocaleString()}</div>
-                                    <div className="text-lg font-bold text-[#8B1538]">₹{room.price.toLocaleString()}</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {bookingStep === 2 && (
-                    <div className="space-y-6">
-                      <h4 className="font-serif text-xl font-bold text-[#8B1538] mb-4">Guest Information</h4>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">First Name</label>
-                          <input
-                            type="text"
-                            required
-                            value={bookingData.guestInfo.firstName}
-                            onChange={(e) => setBookingData({
-                              ...bookingData, 
-                              guestInfo: {...bookingData.guestInfo, firstName: e.target.value}
-                            })}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Last Name</label>
-                          <input
-                            type="text"
-                            required
-                            value={bookingData.guestInfo.lastName}
-                            onChange={(e) => setBookingData({
-                              ...bookingData, 
-                              guestInfo: {...bookingData.guestInfo, lastName: e.target.value}
-                            })}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold text-[#8B1538] mb-2">Email Address</label>
-                        <input
-                          type="email"
-                          required
-                          value={bookingData.guestInfo.email}
-                          onChange={(e) => setBookingData({
-                            ...bookingData, 
-                            guestInfo: {...bookingData.guestInfo, email: e.target.value}
-                          })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Phone Number</label>
-                          <input
-                            type="tel"
-                            required
-                            value={bookingData.guestInfo.phone}
-                            onChange={(e) => setBookingData({
-                              ...bookingData, 
-                              guestInfo: {...bookingData.guestInfo, phone: e.target.value}
-                            })}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-[#8B1538] mb-2">Country</label>
-                          <select
-                            value={bookingData.guestInfo.country}
-                            onChange={(e) => setBookingData({
-                              ...bookingData, 
-                              guestInfo: {...bookingData.guestInfo, country: e.target.value}
-                            })}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent"
-                          >
-                            <option value="India">India</option>
-                            <option value="USA">United States</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Other">Other</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold text-[#8B1538] mb-2">Special Requests</label>
-                        <textarea
-                          rows={3}
-                          value={bookingData.specialRequests}
-                          onChange={(e) => setBookingData({...bookingData, specialRequests: e.target.value})}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B1538] focus:border-transparent resize-none"
-                          placeholder="Any special requirements, dietary restrictions, or preferences..."
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {bookingStep === 3 && (
-                    <div className="space-y-6">
-                      <h4 className="font-serif text-xl font-bold text-[#8B1538] mb-4">Booking Summary</h4>
-                      
-                      <div className="bg-[#FAF9F6] p-6 rounded-lg">
-                        <div className="space-y-4">
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Check-in:</span>
-                            <span className="font-semibold">{bookingData.checkIn}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Check-out:</span>
-                            <span className="font-semibold">{bookingData.checkOut}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Nights:</span>
-                            <span className="font-semibold">{calculateNights()}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Guests:</span>
-                            <span className="font-semibold">{bookingData.guests}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Rooms:</span>
-                            <span className="font-semibold">{bookingData.rooms}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Room Type:</span>
-                            <span className="font-semibold">
-                              {roomTypes.find(r => r.id === bookingData.roomType)?.name}
-                            </span>
-                          </div>
-                          <div className="border-t pt-4">
-                            <div className="flex justify-between text-lg font-bold text-[#8B1538]">
-                              <span>Total Amount:</span>
-                              <span>₹{calculateTotal().toLocaleString()}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <p className="text-sm text-blue-800">
-                          <strong>Note:</strong> This is a booking inquiry. Our team will contact you within 2 hours 
-                          to confirm availability and complete your reservation.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="flex justify-between mt-8">
-                    {bookingStep > 1 && (
-                      <Button 
-                        type="button" 
-                        variant="outline"
-                        onClick={() => setBookingStep(bookingStep - 1)}
-                      >
-                        Previous
-                      </Button>
-                    )}
-                    <Button 
-                      type="submit" 
-                      variant="primary"
-                      className={bookingStep === 1 ? 'w-full' : 'ml-auto'}
-                    >
-                      {bookingStep === 3 ? 'Submit Booking Request' : 'Continue'}
-                    </Button>
-                  </div>
-                </form>
+                <button
+                  onClick={() => setShowBookingModal(false)}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  ✕
+                </button>
               </div>
-            ) : (
-              <div className="p-8 text-center">
-                <CheckCircle className="text-green-500 mx-auto mb-6" size={64} />
-                <h3 className="font-serif text-2xl font-bold text-[#8B1538] mb-4">
-                  Booking Request Submitted!
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Thank you for choosing Heritage Grand. Our team will contact you within 2 hours 
-                  to confirm your reservation and arrange payment.
-                </p>
-                <div className="bg-[#FAF9F6] p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">
-                    Confirmation details have been sent to: <strong>{bookingData.guestInfo.email}</strong>
-                  </p>
-                </div>
-              </div>
-            )}
+            </div>
+            <div className="p-6">
+              <BookingForm
+                bookingType="Room"
+                onClose={() => setShowBookingModal(false)}
+              />
+            </div>
           </div>
         </div>
       )}
