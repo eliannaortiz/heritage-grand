@@ -62,17 +62,16 @@ const Header = () => {
             
             {/* Logo */}
             <div className="flex items-center">
-              <div className="text-center">
-                <h1 className={cn(
-                  'font-serif text-xl md:text-3xl font-bold transition-colors duration-300',
-                  isScrolled ? 'text-[#8B1538]' : 'text-white md:text-[#8B1538]'
-                )}>
+              <div className={cn(
+                "text-center transition-all duration-500",
+                isScrolled
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2 pointer-events-none"
+              )}>
+                <h1 className="font-serif text-xl md:text-3xl font-bold text-[#8B1538]">
                   Heritage Grand
                 </h1>
-                <p className={cn(
-                  'text-xs md:text-sm font-sans tracking-widest uppercase transition-colors duration-300',
-                  isScrolled ? 'text-[#D4AF37]' : 'text-white/90 md:text-[#D4AF37]'
-                )}>
+                <p className="text-xs md:text-sm font-sans tracking-widest uppercase text-[#D4AF37]">
                   Est. 1875
                 </p>
               </div>
